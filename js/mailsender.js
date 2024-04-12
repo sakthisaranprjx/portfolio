@@ -6,17 +6,23 @@ async function send_email(name,email,subject,body){
             body:JSON.stringify({"name":name,"email":email,"subject":subject,"body":body})});
         if(response.status==200){
         alert("I Recived Your Email i'll Contact you Soon")
+        document.getElementById("formSubmit").disabled = false;
+        document.getElementById("formSubmit").value="Send Message"
         }else{
             alert("Something went wrong please try again later")
+            document.getElementById("formSubmit").disabled = false;
+            document.getElementById("formSubmit").value="Send Message"
         }
     } catch (error) {
         console.log(error)
         alert("Something went wrong please try again later")
+        document.getElementById("formSubmit").value="Send Message"
     }
 }
 
 function handleFormSubmit(event) {
-    const regx=/^[a-zA-Z]+$/
+    document.getElementById("formSubmit").disabled = true;
+    document.getElementById("formSubmit").value="Sending Email..."
     event.preventDefault();
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
@@ -45,6 +51,8 @@ function handleFormSubmit(event) {
         console.log(error)
         console.log(name,email,message,subject)
         alert(error)
+        document.getElementById("formSubmit").disabled = false;
+        document.getElementById("formSubmit").value="Send Message"
     }else{
         send_email(name,email,subject,subject)
     }
