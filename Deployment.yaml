@@ -1,3 +1,5 @@
+# sakthisaran/portfolio:3 is a arm64 image
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
