@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: sakthisaran/portfolio
+        image: sakthisaran/portfolio:3
         resources:
           limits:
             memory: "200Mi"
