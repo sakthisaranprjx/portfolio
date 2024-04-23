@@ -12,6 +12,7 @@ async function send_email(name,email,subject,body){
             alert("Something went wrong please try again later")
             document.getElementById("formSubmit").disabled = false;
             document.getElementById("formSubmit").value="Send Message"
+            document.getElementById("formSubmit").disabled = false;
         }
     } catch (error) {
         alert("Something went wrong please try again later")
@@ -50,7 +51,7 @@ function handleFormSubmit(event) {
         document.getElementById("formSubmit").disabled = false;
         document.getElementById("formSubmit").value="Send Message"
     }else{
-        send_email(name,email,subject,subject)
+        send_email(name,email,subject,message)
     }
 }
 var form = document.getElementById('contactForm');
