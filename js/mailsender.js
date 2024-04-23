@@ -1,6 +1,6 @@
 async function send_email(name,email,subject,body){
     try {
-        const response =await fetch('http://mailsender/sendemail',{method:"POST", headers: {
+        const response =await fetch('https://www.sakthisaran.site/server/mailservice/sendemail',{method:"POST", headers: {
             'Content-Type': 'application/json'
             },
             body:JSON.stringify({"name":name,"email":email,"subject":subject,"body":body})});

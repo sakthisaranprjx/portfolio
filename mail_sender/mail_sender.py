@@ -6,6 +6,7 @@ from email.mime.text import MIMEText
 from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
 cors = CORS(app,resources={r'/sendemail':{"origins":["http://127.0.0.1:5500/",
                                              "http://www.sakthisaran.site",
                                              "https://www.sakthisaran.site",
@@ -50,6 +51,7 @@ def mailHandler(name,email,subject,body):
     smtp_server.sendmail(config.sender_add, config.receiver_add, message.as_string())
     smtp_server.quit()
     return ""
+
 @app.route('/ping', methods=['GET'])
 def ping():
     return "OK",200
@@ -68,7 +70,7 @@ def send_email():
     except:
         return "Bad Request",400
     
-app.run(port=81)
+app.run (port=80,host="0.0.0.0")
 
 
 
